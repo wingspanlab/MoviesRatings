@@ -1,0 +1,71 @@
+﻿@model IEnumerable<MoviesRatingsApp.ViewModels.ViewMovie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+   
+</p>
+<table class="table">
+    <thead>
+        <tr>
+           
+
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.episode_id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.producer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.release_date)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.episode_id)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.producer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.release_date)
+            </td>
+
+            <td>
+                @Html.ActionLink("Details", "Edit", new { id = item.Id }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
