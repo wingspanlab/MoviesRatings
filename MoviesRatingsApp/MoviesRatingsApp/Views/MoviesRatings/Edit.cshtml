@@ -1,0 +1,478 @@
+﻿@model MoviesRatingsApp.ViewModels.ViewMovie
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ViewMovie</h4>
+<hr />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Rating" class="font-weight-bold"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <label asp-for="title" class="font-weight-bold"></label>
+                @Html.DisplayFor(model => model.title)
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="episode_id" class="font-weight-bold"></label>
+                @Html.DisplayFor(model => model.episode_id)
+                <span asp-validation-for="episode_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="opening_crawl" class="font-weight-bold"></label>
+                @Html.DisplayFor(model => model.opening_crawl)
+                <span asp-validation-for="opening_crawl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="director" class="font-weight-bold"></label>
+                @Html.DisplayFor(model => model.director)
+                <span asp-validation-for="director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="producer" class="font-weight-bold"></label>
+                @Html.DisplayFor(model => model.producer)
+                <span asp-validation-for="producer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="release_date" class="font-weight-bold"></label>
+                @Html.DisplayFor(model => model.release_date)
+                <span asp-validation-for="release_date" class="text-danger"></span>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+
+
+<p>
+    <label class="font-weight-bold">People</label>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().mass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().hair_color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().skin_color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().eye_color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().birth_year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharactersList.FirstOrDefault().gender)
+            </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CharactersList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mass)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hair_color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skin_color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eye_color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.birth_year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<p>
+    <label class="font-weight-bold">Planets</label>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().rotation_period)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().orbital_period)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().diameter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().climate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().gravity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().terrain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().surface_water)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanetsList.FirstOrDefault().population)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PlanetsList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rotation_period)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.orbital_period)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.diameter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.climate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gravity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.terrain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.surface_water)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.population)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <label class="font-weight-bold">Starships</label>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().cost_in_credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().max_atmosphering_speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().crew)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().passengers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().cargo_capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().consumables)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().hyperdrive_rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().MGLT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StarshipsList.FirstOrDefault().starship_class)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.StarshipsList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cost_in_credits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.length)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.max_atmosphering_speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.crew)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passengers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cargo_capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.consumables)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hyperdrive_rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MGLT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.starship_class)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <label class="font-weight-bold">Vehicles</label>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().cost_in_credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().max_atmosphering_speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().crew)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().passengers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().cargo_capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().consumables)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VehiclesList.FirstOrDefault().vehicle_class)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.VehiclesList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cost_in_credits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.length)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.max_atmosphering_speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.crew)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passengers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cargo_capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.consumables)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.vehicle_class)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <label class="font-weight-bold">Species</label>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().classification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().average_height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().skin_colors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().hair_colors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().eye_colors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().average_lifespan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().homeworld)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpeciesList.FirstOrDefault().language)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SpeciesList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.classification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.designation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.average_height)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skin_colors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hair_colors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eye_colors)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.average_lifespan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.homeworld)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.language)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
